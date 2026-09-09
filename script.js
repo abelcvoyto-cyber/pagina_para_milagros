@@ -2,48 +2,47 @@
 /* MÚSICA */
 /* ================================= */
 
-const musica =
-    document.getElementById(
-        "musicaFondo"
-    );
-
-
-const botonMusica =
-    document.getElementById(
-        "botonMusica"
-    );
-
+const musica = document.getElementById("musicaFondo");
+const botonMusica = document.getElementById("botonMusica");
 
 musica.volume = 0.5;
+
+
+/* ================================= */
+/* ACTUALIZAR ÍCONO DE MÚSICA */
+/* ================================= */
+
+function actualizarIconoMusica() {
+
+    if (musica.paused) {
+        botonMusica.innerHTML = "🎵";
+    } else {
+        botonMusica.innerHTML = "🔊";
+    }
+
+}
 
 
 /* ================================= */
 /* INTENTAR REPRODUCIR AL ENTRAR */
 /* ================================= */
 
-window.addEventListener(
-    "load",
-    () => {
+window.addEventListener("load", () => {
 
-        musica
-            .play()
+    musica
+        .play()
+        .then(() => {
 
-            .then(() => {
+            actualizarIconoMusica();
 
-                botonMusica.innerHTML =
-                    "🔊";
+        })
+        .catch(() => {
 
-            })
+            botonMusica.innerHTML = "🎵";
 
-            .catch(() => {
+        });
 
-                botonMusica.innerHTML =
-                    "🎵";
-
-            });
-
-    }
-);
+});
 
 
 /* ================================= */
@@ -56,18 +55,15 @@ function iniciarMusica() {
 
         musica
             .play()
-
             .then(() => {
 
-                botonMusica.innerHTML =
-                    "🔊";
+                actualizarIconoMusica();
 
             })
-
             .catch(() => {
 
                 console.log(
-                    "El navegador bloqueó el audio."
+                    "El navegador bloqueó la reproducción automática."
                 );
 
             });
@@ -101,23 +97,27 @@ document.addEventListener(
 
 function irCarta() {
 
-    if (musica.paused) {
+    musica
+        .play()
+        .then(() => {
 
-        musica.play();
+            actualizarIconoMusica();
 
-        botonMusica.innerHTML =
-            "🔊";
-    }
+        })
+        .catch(() => {
+
+            console.log(
+                "No se pudo iniciar la música."
+            );
+
+        });
 
 
     document
-        .getElementById(
-            "carta"
-        )
+        .getElementById("carta")
         .scrollIntoView({
 
-            behavior:
-                "smooth"
+            behavior: "smooth"
 
         });
 
@@ -132,10 +132,20 @@ function controlarMusica() {
 
     if (musica.paused) {
 
-        musica.play();
+        musica
+            .play()
+            .then(() => {
 
-        botonMusica.innerHTML =
-            "🔊";
+                botonMusica.innerHTML = "🔊";
+
+            })
+            .catch(() => {
+
+                console.log(
+                    "No se pudo reproducir la música."
+                );
+
+            });
 
     }
 
@@ -143,8 +153,7 @@ function controlarMusica() {
 
         musica.pause();
 
-        botonMusica.innerHTML =
-            "🔇";
+        botonMusica.innerHTML = "🔇";
 
     }
 
@@ -192,17 +201,9 @@ function crearFrase() {
     );
 
 
-    /*
-    FRASE QUE VA A APARECER
-    */
-
     frase.textContent =
         "Te quiero Milagros ❤️";
 
-
-    /*
-    POSICIÓN HORIZONTAL ALEATORIA
-    */
 
     const posicion =
         Math.random() * 70 + 5;
@@ -212,10 +213,6 @@ function crearFrase() {
         posicion + "vw";
 
 
-    /*
-    TAMAÑO ALEATORIO
-    */
-
     const tamaño =
         Math.random() * 12 + 25;
 
@@ -224,10 +221,6 @@ function crearFrase() {
         tamaño + "px";
 
 
-    /*
-    VELOCIDAD ALEATORIA
-    */
-
     const velocidad =
         Math.random() * 3 + 6;
 
@@ -235,10 +228,6 @@ function crearFrase() {
     frase.style.animationDuration =
         velocidad + "s";
 
-
-    /*
-    PEQUEÑA ROTACIÓN ALEATORIA
-    */
 
     const rotacion =
         Math.random() * 8 - 4;
@@ -250,18 +239,10 @@ function crearFrase() {
     );
 
 
-    /*
-    AGREGAR AL BODY
-    */
-
     document.body.appendChild(
         frase
     );
 
-
-    /*
-    ELIMINAR DESPUÉS
-    */
 
     setTimeout(
         () => {
@@ -280,11 +261,6 @@ function crearFrase() {
 /* FRASES AUTOMÁTICAS */
 /* ================================= */
 
-/*
-Cada 1.4 segundos
-aparece una frase.
-*/
-
 setInterval(
     crearFrase,
     1400
@@ -295,13 +271,6 @@ setInterval(
 /* LLUVIA DE FRASES */
 /* ================================= */
 
-/*
-Cuando presiona el botón
-"Presiona aquí ❤️"
-
-aparecen muchas frases.
-*/
-
 function lluviaFrases() {
 
     let cantidad = 0;
@@ -311,10 +280,6 @@ function lluviaFrases() {
         setInterval(
             () => {
 
-
-                /*
-                CREAR 3 FRASES
-                */
 
                 for (
                     let i = 0;
@@ -333,10 +298,6 @@ function lluviaFrases() {
                 cantidad++;
 
 
-                /*
-                DETENER LA LLUVIA
-                */
-
                 if (
                     cantidad >= 10
                 ) {
@@ -353,6 +314,8 @@ function lluviaFrases() {
         );
 
 }
+
+
 /* ================================= */
 /* ABRIR FOTO */
 /* ================================= */
