@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para Milagros ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- MÚSICA -->
+    <!-- ========================= -->
+
+    <audio id="musicaFondo" autoplay loop preload="auto">
+        <source src="musica/nuestra-cancion.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- BOTÓN DE MÚSICA -->
+
+    <button
+        id="botonMusica"
+        class="boton-musica"
+        onclick="controlarMusica()"
+        aria-label="Controlar música">
+        🎵
+    </button>
+
+
+    <!-- ========================= -->
+    <!-- PORTADA -->
+    <!-- ========================= -->
+
+    <section class="inicio">
+
+        <div class="contenido-inicio">
+
+            <!-- FOTO -->
+
+            <div class="contenedor-foto">
+
+                <div class="brillo-foto"></div>
+
+                <img
+                    src="img/milagros.png"
+                    alt="Milagros"
+                    class="foto-milagros"
+                    onclick="abrirFoto()">
+
+            </div>
+
+
+            <p class="pequeno">
+                Hice algo especialmente para ti...
+            </p>
+
+
+            <h1>
+                Milagros ❤️
+            </h1>
+
+
+            <h2>
+                Eres una de las cosas más bonitas
+                que llegó a mi vida
+            </h2>
+
+
+            <button
+                class="boton-principal"
+                onclick="irCarta()">
+                Abrir mi regalo 💌
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- CARTA -->
+    <!-- ========================= -->
+
+    <section class="carta" id="carta">
+
+        <div class="carta-contenido">
+
+            <span class="corazon-grande">
+                ❤️
+            </span>
+
+
+            <h2>
+                Para ti, Milagros
+            </h2>
+
+
+            <p>
+                Quizá este detalle no pueda demostrar
+                todo lo que siento por ti,
+                pero quería crear algo diferente,
+                algo que fuera solamente tuyo.
+            </p>
+
+
+            <p>
+                Gracias por cada sonrisa,
+                cada conversación
+                y cada minuto bonito.
+            </p>
+
+
+            <p>
+                Quiero que sepas que eres
+                una persona muy especial para mí,
+                y que cada día encuentro
+                una nueva razón para quererte
+                todavía más.
+            </p>
+
+
+            <p>
+                Este pequeño detalle lo hice pensando
+                en ti, porque quería regalarte algo
+                diferente y especial.
+            </p>
+
+
+            <p>
+                Algo que puedas mirar y recordar
+                que existe alguien que piensa en ti,
+                que disfruta cada momento a tu lado
+                y que te quiere muchísimo.
+            </p>
+
+
+            <p class="firma">
+                Con mucho amor ❤️
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- RAZONES -->
+    <!-- ========================= -->
+
+    <section class="razones">
+
+        <h2>
+            Algunas razones por las que te quiero 💕
+        </h2>
+
+
+        <div class="contenedor-razones">
+
+            <div class="tarjeta">
+
+                <span>🥰</span>
+
+                <h3>
+                    Tu sonrisa
+                </h3>
+
+                <p>
+                    Porque tienes una sonrisa
+                    capaz de hacer bonito cualquier día.
+                </p>
+
+            </div>
+
+
+            <div class="tarjeta">
+
+                <span>❤️</span>
+
+                <h3>
+                    Tu forma de ser
+                </h3>
+
+                <p>
+                    Porque eres tú,
+                    con cada detalle que te hace
+                    diferente y especial.
+                </p>
+
+            </div>
+
+
+            <div class="tarjeta">
+
+                <span>🌷</span>
+
+                <h3>
+                    Cómo me haces sentir
+                </h3>
+
+                <p>
+                    Porque contigo existen momentos
+                    que simplemente no cambiaría
+                    por nada.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- SORPRESA -->
+    <!-- ========================= -->
+
+    <section class="sorpresa">
+
+        <h2>
+            Tengo algo más que decirte...
+        </h2>
+
+
+        <button
+            class="boton-principal"
+            onclick="mostrarSorpresa()">
+            Presiona aquí ❤️
+        </button>
+
+
+        <div
+            id="mensajeSorpresa"
+            class="mensaje-sorpresa">
+
+            <h2>
+                Te quiero mucho, Milagros ❤️
+            </h2>
+
+
+            <p>
+                Y espero seguir creando
+                muchos recuerdos bonitos contigo.
+            </p>
+
+
+            <p class="mensaje-final">
+                Gracias por llegar a mi vida 🌷
+            </p>
+
+
+            <div class="amor">
+                ❤️
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- FOTO EN PANTALLA GRANDE -->
+    <!-- ========================= -->
+
+    <div
+        id="visorFoto"
+        class="visor-foto"
+        onclick="cerrarFoto()">
+
+
+        <button
+            class="cerrar-foto"
+            onclick="cerrarFoto()"
+            aria-label="Cerrar foto">
+            ×
+        </button>
+
+
+        <img
+            src="img/milagros.png"
+            alt="Milagros"
+            class="foto-grande"
+            onclick="event.stopPropagation()">
+
+
+        <p>
+            La niña de mis ojos ❤️
+        </p>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+
+    <footer>
+        Hecho con ❤️ especialmente para Milagros
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
